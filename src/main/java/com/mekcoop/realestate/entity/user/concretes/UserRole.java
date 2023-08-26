@@ -1,4 +1,4 @@
-package com.mekcoop.realestate.entity.user;
+package com.mekcoop.realestate.entity.user.concretes;
 
 import com.mekcoop.realestate.entity.enums.RoleType;
 import javax.persistence.*;

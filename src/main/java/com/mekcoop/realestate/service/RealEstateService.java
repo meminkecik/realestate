@@ -1,7 +1,7 @@
 package com.mekcoop.realestate.service;
 
 import com.mekcoop.realestate.entity.enums.RoleType;
-import com.mekcoop.realestate.entity.user.RealEstate;
+import com.mekcoop.realestate.entity.user.concretes.RealEstate;
 import com.mekcoop.realestate.exception.ResourceNotFoundException;
 import com.mekcoop.realestate.payload.mapper.RealEstateMapper;
 import com.mekcoop.realestate.payload.message.ErrorMessage;
@@ -35,7 +35,7 @@ public class RealEstateService {
         return ResponseMessage.<RealEstateResponse>builder()
                 .message(SuccessMessage.REAL_ESTATE_SAVE)
                 .httpStatus(HttpStatus.CREATED)
-                .object(realEstateMapper.mapRealEstateResponseToRealEstate(savedRealEstate))
+                .object(realEstateMapper.mapRealEstateToRealEstateResponse(savedRealEstate))
                 .build();
     }
 
@@ -45,5 +45,32 @@ public class RealEstateService {
                 new ResourceNotFoundException(String.format(ErrorMessage.NOT_FOUND_REAL_ESTATE_EMAIL_MESSAGE,email))
         );
         return realEstate;
+    }
+
+    public ResponseMessage deleteRealEstate(Long realEstateId) {
+        isRealEstateExistsById(realEstateId);
+        realEstateRepository.deleteById(realEstateId);
+        return ResponseMessage.builder()
+                .httpStatus(HttpStatus.OK)
+                .message(SuccessMessage.REAL_ESTATE_DELETE)
+                .build();
+    }
+    private RealEstate isRealEstateExistsById(Long realEstateId){
+       return realEstateRepository
+               .findById(realEstateId)
+               .orElseThrow(()-> new ResourceNotFoundException(String.format(ErrorMessage.NOT_FOUN_REAL_ESTATE,realEstateId)));
+    }
+
+    public ResponseMessage<RealEstateResponse> updateRealEstate(RealEstateRequest realEstateRequest, Long realEstateId) {
+        RealEstate realEstate = isRealEstateExistsById(realEstateId);
+        uniquePropertyValidator.checkUniquePropertiesForRealEstate(realEstate,realEstateRequest);
+        RealEstate updatedRealEstate = realEstateMapper.mapRealEstateRequestToUpdatedRealEstate(realEstateRequest,realEstateId);
+        updatedRealEstate.setPassword(passwordEncoder.encode(realEstateRequest.getPassword()));
+        RealEstate savedRealEstate = realEstateRepository.save(updatedRealEstate);
+        return ResponseMessage.<RealEstateResponse>builder()
+                .httpStatus(HttpStatus.OK)
+                .message(SuccessMessage.REAL_ESTATE_UPDATE)
+                .object(realEstateMapper.mapRealEstateToRealEstateResponse(savedRealEstate))
+                .build();
     }
 }

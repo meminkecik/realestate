@@ -11,12 +11,19 @@ public class ErrorMessage {
 
 
     public static final String NOT_FOUND_USER_SSN_MESSAGE ="Error: User not found with ssn %s";
+    public static final String NOT_FOUND_USER_ID_MESSAGE ="Error: User not found with id %s";
+
 
 
     public static final String NOT_FOUND_REAL_ESTATE_EMAIL_MESSAGE ="Error: Real estate not found with email %s";
+    public static final String NOT_FOUN_REAL_ESTATE ="Error: Real Estate not found with id %s";
 
 
     public static final String ROLE_NOT_FOUND="Error: There is no role like that, check the database";
     public static final String ROLE_ALREADY_EXISTS ="Error: Role already exists in DB";
+
+
+    public static final String NOT_FOUND_ESTATE ="Error: Estate not found with id %s";
+
 
 }

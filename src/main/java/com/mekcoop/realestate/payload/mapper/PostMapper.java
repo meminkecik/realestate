@@ -1,8 +1,8 @@
 package com.mekcoop.realestate.payload.mapper;
 
 import com.mekcoop.realestate.entity.business.Post;
-import com.mekcoop.realestate.payload.request.PostResponse;
-import com.mekcoop.realestate.payload.response.PostRequest;
+import com.mekcoop.realestate.payload.response.PostResponse;
+import com.mekcoop.realestate.payload.request.PostRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,6 +17,9 @@ public class PostMapper {
                 .squareMeter(postRequest.getSquareMeter())
                 .totalFloor(postRequest.getTotalFloor())
                 .typeOfHeating(postRequest.getTypeOfHeating())
+                .price(postRequest.getPrice())
+                .header(postRequest.getHeader())
+                .description(postRequest.getDescription())
                 .build();
     }
     public PostResponse mapPostToPostResponse(Post post){
@@ -30,9 +33,18 @@ public class PostMapper {
                 .squareMeter(post.getSquareMeter())
                 .totalFloor(post.getTotalFloor())
                 .typeOfHeating(post.getTypeOfHeating())
-                .user(post.getUser())
+                .userName(post.getUser().getFirstName())
+                .userSurname(post.getUser().getLastName())
                 .imageFiles(post.getImageFiles())
-                .realEstate(post.getRealEstate())
+                .companyName(post.getRealEstate().getCompanyName())
+                .price(post.getPrice())
+                .header(post.getHeader())
+                .description(post.getDescription())
                 .build();
+    }
+    public Post mapPostRequestToUpdatedPost(PostRequest postRequest,Long id){
+        return mapPostRequestToPost(postRequest).toBuilder().id(id).build();
+
+
     }
 }

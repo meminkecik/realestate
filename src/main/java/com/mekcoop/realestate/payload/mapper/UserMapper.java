@@ -1,6 +1,6 @@
 package com.mekcoop.realestate.payload.mapper;
 
-import com.mekcoop.realestate.entity.user.User;
+import com.mekcoop.realestate.entity.user.concretes.User;
 import com.mekcoop.realestate.payload.request.UserRequest;
 import com.mekcoop.realestate.payload.response.UserResponse;
 import org.springframework.stereotype.Component;
@@ -29,5 +29,11 @@ public class UserMapper {
                 .email(user.getEmail())
                 .homePhone(user.getHomePhone())
                 .build();
+    }
+
+    public User mapUserRequestToUpdatedUser(UserRequest userRequest,Long id){
+        User user = mapUserRequestToUser(userRequest);
+        user.setId(id);
+        return user;
     }
 }

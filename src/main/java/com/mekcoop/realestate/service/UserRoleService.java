@@ -1,7 +1,7 @@
 package com.mekcoop.realestate.service;
 
 import com.mekcoop.realestate.entity.enums.RoleType;
-import com.mekcoop.realestate.entity.user.UserRole;
+import com.mekcoop.realestate.entity.user.concretes.UserRole;
 import com.mekcoop.realestate.exception.ConflictException;
 import com.mekcoop.realestate.payload.message.ErrorMessage;
 import com.mekcoop.realestate.repository.UserRoleRepository;

@@ -1,7 +1,8 @@
 package com.mekcoop.realestate.entity.business;
 
-import com.mekcoop.realestate.entity.user.RealEstate;
-import com.mekcoop.realestate.entity.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mekcoop.realestate.entity.user.concretes.RealEstate;
+import com.mekcoop.realestate.entity.user.concretes.User;
 import com.mekcoop.realestate.entity.enums.EstateType;
 import javax.persistence.*;
 import lombok.*;
@@ -19,6 +20,9 @@ public class Post {
     private Long id;
     @Enumerated(EnumType.STRING)
     private EstateType estateType;
+    private Double price;
+    private String header;
+    private String description;
     private Integer squareMeter;
     private Integer roomNumber;
     private Integer totalFloor;
@@ -27,9 +31,11 @@ public class Post {
     private String city;
     private String address;
     @OneToMany(mappedBy = "post")
+    @JsonIgnore
     private Set<ImageFile> imageFiles;
     @OneToOne
     private User user;
     @ManyToOne
+    @JsonIgnore
     private RealEstate realEstate;
 }

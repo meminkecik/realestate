@@ -6,10 +6,8 @@ import com.mekcoop.realestate.payload.response.ResponseMessage;
 import com.mekcoop.realestate.service.RealEstateService;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/realEstate")
@@ -20,5 +18,15 @@ public class RealEstateController {
     @PostMapping("/save")
     public ResponseMessage<RealEstateResponse> saveRealEstate(@RequestBody @Valid RealEstateRequest realEstateRequest){
         return realEstateService.saveRealEstate(realEstateRequest);
+    }
+    @DeleteMapping("/delete/{realEstateId}")
+    @PreAuthorize("hasAnyAuthority('REAL_ESTATE')")
+    public ResponseMessage deleteRealEstate(@PathVariable Long realEstateId){
+        return realEstateService.deleteRealEstate(realEstateId);
+    }
+    @PutMapping("/updateRealEstate/{realEstateId}")
+    @PreAuthorize("hasAnyAuthority('REAL_ESTATE')")
+    public ResponseMessage<RealEstateResponse> updateRealEstate(@RequestBody @Valid RealEstateRequest realEstateRequest,@PathVariable Long realEstateId){
+        return realEstateService.updateRealEstate(realEstateRequest,realEstateId);
     }
 }

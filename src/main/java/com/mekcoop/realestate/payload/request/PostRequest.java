@@ -1,4 +1,4 @@
-package com.mekcoop.realestate.payload.response;
+package com.mekcoop.realestate.payload.request;
 
 import com.mekcoop.realestate.entity.business.ImageFile;
 import com.mekcoop.realestate.entity.enums.EstateType;
@@ -17,6 +17,12 @@ import java.util.Set;
 public class PostRequest {
     @NotNull(message = "Please select estate type")
     private EstateType estateType;
+    @NotNull(message = "Please enter price")
+    private Double price;
+    @NotNull(message = "Please enter header")
+    private String header;
+    @NotNull(message = "Please enter description")
+    private String description;
     @NotNull(message = "Please enter square meter")
     private Integer squareMeter;
     @NotNull(message = "Please enter room number")

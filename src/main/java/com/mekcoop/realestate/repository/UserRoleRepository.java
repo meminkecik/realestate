@@ -1,7 +1,7 @@
 package com.mekcoop.realestate.repository;
 
 import com.mekcoop.realestate.entity.enums.RoleType;
-import com.mekcoop.realestate.entity.user.UserRole;
+import com.mekcoop.realestate.entity.user.concretes.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,6 +1,6 @@
 package com.mekcoop.realestate.repository;
 
-import com.mekcoop.realestate.entity.user.User;
+import com.mekcoop.realestate.entity.user.concretes.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

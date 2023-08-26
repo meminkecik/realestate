@@ -1,9 +1,7 @@
-package com.mekcoop.realestate.payload.request;
+package com.mekcoop.realestate.payload.response;
 
 import com.mekcoop.realestate.entity.business.ImageFile;
 import com.mekcoop.realestate.entity.enums.EstateType;
-import com.mekcoop.realestate.entity.user.RealEstate;
-import com.mekcoop.realestate.entity.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +17,9 @@ import java.util.Set;
 public class PostResponse {
     private Long id;
     private EstateType estateType;
+    private Double price;
+    private String header;
+    private String description;
     private Integer squareMeter;
     private Integer roomNumber;
     private Integer totalFloor;
@@ -27,6 +28,7 @@ public class PostResponse {
     private String city;
     private String address;
     private Set<ImageFile> imageFiles;
-    private User user;
-    private RealEstate realEstate;
+    private String userName;
+    private String userSurname;
+    private String companyName;
 }

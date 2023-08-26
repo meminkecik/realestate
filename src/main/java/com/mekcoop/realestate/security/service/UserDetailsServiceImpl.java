@@ -1,7 +1,7 @@
 package com.mekcoop.realestate.security.service;
 
-import com.mekcoop.realestate.entity.user.RealEstate;
-import com.mekcoop.realestate.entity.user.User;
+import com.mekcoop.realestate.entity.user.concretes.RealEstate;
+import com.mekcoop.realestate.entity.user.concretes.User;
 import com.mekcoop.realestate.repository.RealEstateRepository;
 import com.mekcoop.realestate.repository.UserRepository;
 import javax.transaction.Transactional;

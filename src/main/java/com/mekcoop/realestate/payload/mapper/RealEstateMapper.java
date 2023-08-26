@@ -1,6 +1,6 @@
 package com.mekcoop.realestate.payload.mapper;
 
-import com.mekcoop.realestate.entity.user.RealEstate;
+import com.mekcoop.realestate.entity.user.concretes.RealEstate;
 import com.mekcoop.realestate.payload.request.RealEstateRequest;
 import com.mekcoop.realestate.payload.response.RealEstateResponse;
 import org.springframework.stereotype.Component;
@@ -22,7 +22,7 @@ public class RealEstateMapper {
                 .build();
     }
 
-    public RealEstateResponse mapRealEstateResponseToRealEstate(RealEstate realEstate){
+    public RealEstateResponse mapRealEstateToRealEstateResponse(RealEstate realEstate){
         return RealEstateResponse.builder()
                 .id(realEstate.getId())
                 .email(realEstate.getEmail())
@@ -34,5 +34,11 @@ public class RealEstateMapper {
                 .taxNumber(realEstate.getTaxNumber())
                 .phoneNumber(realEstate.getPhoneNumber())
                 .build();
+    }
+
+    public RealEstate mapRealEstateRequestToUpdatedRealEstate(RealEstateRequest realEstateRequest,Long id){
+        RealEstate realEstate = mapRealEstateRequestToRealEstate(realEstateRequest);
+        realEstate.setId(id);
+        return realEstate;
     }
 }
