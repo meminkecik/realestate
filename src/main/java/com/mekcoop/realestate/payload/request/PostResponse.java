@@ -1,22 +1,23 @@
-package com.mekcoop.realestate.entity;
+package com.mekcoop.realestate.payload.request;
 
+import com.mekcoop.realestate.entity.business.ImageFile;
 import com.mekcoop.realestate.entity.enums.EstateType;
-import jakarta.persistence.*;
-import lombok.*;
+import com.mekcoop.realestate.entity.user.RealEstate;
+import com.mekcoop.realestate.entity.user.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.List;
+
 import java.util.Set;
-@Entity
-@Getter
-@Setter
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class Estate {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PostResponse {
     private Long id;
-    @Enumerated(EnumType.STRING)
     private EstateType estateType;
     private Integer squareMeter;
     private Integer roomNumber;
@@ -25,10 +26,7 @@ public class Estate {
     private String typeOfHeating;
     private String city;
     private String address;
-    @OneToMany(mappedBy = "estate")
     private Set<ImageFile> imageFiles;
-    @OneToOne
     private User user;
-    @ManyToOne
     private RealEstate realEstate;
 }

@@ -1,12 +1,13 @@
-package com.mekcoop.realestate.entity;
+package com.mekcoop.realestate.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
 import lombok.*;
 
 
 @Entity
+@Table(name = "t_user")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,6 +17,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
+    private String ssn;
     private String firstName;
     private String lastName;
     @Email(message = "Please enter valid email")
@@ -25,5 +28,8 @@ public class User {
     private String password;
     private String homePhone;
     @Column(unique = true)
-    private String cellPhone;
+    private String phoneNumber;
+    @OneToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private UserRole userRole;
 }
