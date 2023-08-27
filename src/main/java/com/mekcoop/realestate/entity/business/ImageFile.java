@@ -13,8 +13,8 @@ public class ImageFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String filePath;
+    @Lob
+    private byte[] image;
     @ManyToOne
     private Post post;
 }

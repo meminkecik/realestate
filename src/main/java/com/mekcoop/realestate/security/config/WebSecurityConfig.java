@@ -86,12 +86,17 @@ public class WebSecurityConfig {
     private static final String[] AUTH_WHITE_LIST = {
             "/",
             "index.html",
+            "estate.html",
             "/images/**",
             "/css/**",
             "/js/**",
             "/auth/**",
             "/user/save",
-            "/realEstate/save"
+            "/realEstate/save",
+            "/estate.html",
+            "/static/**",
+            "/static/estatef/**",
+            "/estatef/**"
     };
 
 }
