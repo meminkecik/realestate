@@ -2,8 +2,8 @@ package com.mekcoop.realestate;
 
 import com.mekcoop.realestate.entity.enums.RoleType;
 import com.mekcoop.realestate.payload.request.UserRequest;
-import com.mekcoop.realestate.service.UserRoleService;
-import com.mekcoop.realestate.service.UserService;
+import com.mekcoop.realestate.service.user.UserRoleService;
+import com.mekcoop.realestate.service.user.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

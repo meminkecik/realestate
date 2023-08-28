@@ -1,4 +1,4 @@
-package com.mekcoop.realestate.service;
+package com.mekcoop.realestate.service.user;
 
 import com.mekcoop.realestate.payload.request.LoginRequest;
 import com.mekcoop.realestate.payload.response.AuthResponse;

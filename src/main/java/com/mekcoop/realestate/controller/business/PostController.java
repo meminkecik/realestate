@@ -1,9 +1,9 @@
-package com.mekcoop.realestate.controller;
+package com.mekcoop.realestate.controller.business;
 
 import com.mekcoop.realestate.payload.response.PostResponse;
 import com.mekcoop.realestate.payload.request.PostRequest;
 import com.mekcoop.realestate.payload.response.ResponseMessage;
-import com.mekcoop.realestate.service.PostService;
+import com.mekcoop.realestate.service.business.PostService;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;

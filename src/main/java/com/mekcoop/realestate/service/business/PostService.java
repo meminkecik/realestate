@@ -1,4 +1,4 @@
-package com.mekcoop.realestate.service;
+package com.mekcoop.realestate.service.business;
 
 import com.mekcoop.realestate.entity.business.Post;
 import com.mekcoop.realestate.entity.user.concretes.RealEstate;
@@ -13,6 +13,8 @@ import com.mekcoop.realestate.payload.response.ResponseMessage;
 import com.mekcoop.realestate.repository.PostRepository;
 import javax.servlet.http.HttpServletRequest;
 
+import com.mekcoop.realestate.service.user.RealEstateService;
+import com.mekcoop.realestate.service.user.UserService;
 import com.mekcoop.realestate.service.helper.PageableHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

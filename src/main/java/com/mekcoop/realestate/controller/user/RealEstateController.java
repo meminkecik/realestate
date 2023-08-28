@@ -1,9 +1,9 @@
-package com.mekcoop.realestate.controller;
+package com.mekcoop.realestate.controller.user;
 
 import com.mekcoop.realestate.payload.request.RealEstateRequest;
 import com.mekcoop.realestate.payload.response.RealEstateResponse;
 import com.mekcoop.realestate.payload.response.ResponseMessage;
-import com.mekcoop.realestate.service.RealEstateService;
+import com.mekcoop.realestate.service.user.RealEstateService;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;

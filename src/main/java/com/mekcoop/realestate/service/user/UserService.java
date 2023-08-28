@@ -1,4 +1,4 @@
-package com.mekcoop.realestate.service;
+package com.mekcoop.realestate.service.user;
 
 import com.mekcoop.realestate.entity.enums.RoleType;
 import com.mekcoop.realestate.entity.user.concretes.User;
