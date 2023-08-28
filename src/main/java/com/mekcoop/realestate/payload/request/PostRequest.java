@@ -1,14 +1,11 @@
 package com.mekcoop.realestate.payload.request;
 
-import com.mekcoop.realestate.entity.business.ImageFile;
 import com.mekcoop.realestate.entity.enums.EstateType;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -34,7 +31,6 @@ public class PostRequest {
     private String city;
     @NotNull(message = "Please enter address")
     private String address;
-    private Set<ImageFile> imageFiles;
     @NotNull(message = "Please enter owner user ssn")
     private String ownerSsn;
 }

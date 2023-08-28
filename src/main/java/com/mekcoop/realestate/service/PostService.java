@@ -33,6 +33,7 @@ public class PostService {
     private final PostMapper postMapper;
     private final PageableHelper pageableHelper;
 
+
     public ResponseMessage<PostResponse> saveEstate(PostRequest postRequest, HttpServletRequest request) {
         User user = userService.getUserBySsn(postRequest.getOwnerSsn());
         String email = (String) request.getAttribute("email");
@@ -40,8 +41,8 @@ public class PostService {
         Post post = postMapper.mapPostRequestToPost(postRequest);
         post.setUser(user);
         post.setRealEstate(realEstate);
-        //TODO image file setlenecek
         Post savedPost = postRepository.save(post);
+
         return ResponseMessage.<PostResponse>builder()
                 .httpStatus(HttpStatus.CREATED)
                 .object(postMapper.mapPostToPostResponse(savedPost))
@@ -62,7 +63,7 @@ public class PostService {
         postRepository.deleteById(postId);
         return ResponseMessage.builder().message(SuccessMessage.ESTATE_DELETE).httpStatus(HttpStatus.OK).build();
     }
-    private Post isPostExistsById(Long postId){
+    public Post isPostExistsById(Long postId){
         Post post = postRepository.findById(postId).orElseThrow(()-> new ResourceNotFoundException(String.format(ErrorMessage.NOT_FOUND_ESTATE,postId)));
         return post;
     }

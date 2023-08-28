@@ -21,8 +21,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
-
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
@@ -96,7 +94,8 @@ public class WebSecurityConfig {
             "/estate.html",
             "/static/**",
             "/static/estatef/**",
-            "/estatef/**"
+            "/estatef/**",
+            "/favicon.ico"
     };
 
 }

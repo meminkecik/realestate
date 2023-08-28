@@ -1,14 +1,10 @@
 package com.mekcoop.realestate.payload.response;
 
-import com.mekcoop.realestate.entity.business.ImageFile;
 import com.mekcoop.realestate.entity.enums.EstateType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -27,7 +23,6 @@ public class PostResponse {
     private String typeOfHeating;
     private String city;
     private String address;
-    private Set<ImageFile> imageFiles;
     private String userName;
     private String userSurname;
     private String companyName;

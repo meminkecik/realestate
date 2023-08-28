@@ -7,7 +7,6 @@ import com.mekcoop.realestate.entity.enums.EstateType;
 import javax.persistence.*;
 import lombok.*;
 
-import java.util.Set;
 @Entity
 @Getter
 @Setter
@@ -30,12 +29,10 @@ public class Post {
     private String typeOfHeating;
     private String city;
     private String address;
-    @OneToMany(mappedBy = "post")
-    @JsonIgnore
-    private Set<ImageFile> imageFiles;
     @OneToOne
     private User user;
     @ManyToOne
     @JsonIgnore
     private RealEstate realEstate;
+
 }

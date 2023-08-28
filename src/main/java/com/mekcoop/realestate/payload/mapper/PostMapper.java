@@ -3,10 +3,16 @@ package com.mekcoop.realestate.payload.mapper;
 import com.mekcoop.realestate.entity.business.Post;
 import com.mekcoop.realestate.payload.response.PostResponse;
 import com.mekcoop.realestate.payload.request.PostRequest;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+
 @Component
+@RequiredArgsConstructor
+@Data
 public class PostMapper {
+
     public Post mapPostRequestToPost(PostRequest postRequest){
         return Post.builder()
                 .floor(postRequest.getTotalFloor())
@@ -35,7 +41,6 @@ public class PostMapper {
                 .typeOfHeating(post.getTypeOfHeating())
                 .userName(post.getUser().getFirstName())
                 .userSurname(post.getUser().getLastName())
-                .imageFiles(post.getImageFiles())
                 .companyName(post.getRealEstate().getCompanyName())
                 .price(post.getPrice())
                 .header(post.getHeader())

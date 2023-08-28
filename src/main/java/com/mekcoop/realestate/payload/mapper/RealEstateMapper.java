@@ -3,9 +3,11 @@ package com.mekcoop.realestate.payload.mapper;
 import com.mekcoop.realestate.entity.user.concretes.RealEstate;
 import com.mekcoop.realestate.payload.request.RealEstateRequest;
 import com.mekcoop.realestate.payload.response.RealEstateResponse;
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 @Component
+@Data
 public class RealEstateMapper {
 
     public RealEstate mapRealEstateRequestToRealEstate(RealEstateRequest realEstateRequest){
