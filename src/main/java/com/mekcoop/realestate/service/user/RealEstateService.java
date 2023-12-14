@@ -9,6 +9,7 @@ import com.mekcoop.realestate.payload.message.SuccessMessage;
 import com.mekcoop.realestate.payload.request.RealEstateRequest;
 import com.mekcoop.realestate.payload.response.RealEstateResponse;
 import com.mekcoop.realestate.payload.response.ResponseMessage;
+import com.mekcoop.realestate.payload.response.UserResponse;
 import com.mekcoop.realestate.repository.RealEstateRepository;
 import com.mekcoop.realestate.service.validator.UniquePropertyValidator;
 import lombok.RequiredArgsConstructor;
@@ -71,6 +72,15 @@ public class RealEstateService {
                 .httpStatus(HttpStatus.OK)
                 .message(SuccessMessage.REAL_ESTATE_UPDATE)
                 .object(realEstateMapper.mapRealEstateToRealEstateResponse(savedRealEstate))
+                .build();
+    }
+
+    public ResponseMessage<RealEstateResponse> getEstate(Long estateId) {
+        RealEstate realEstate = isRealEstateExistsById(estateId);
+        return ResponseMessage.<RealEstateResponse>builder()
+                .message(SuccessMessage.REAL_ESTATE_GET)
+                .httpStatus(HttpStatus.OK)
+                .object(realEstateMapper.mapRealEstateToRealEstateResponse(realEstate))
                 .build();
     }
 }

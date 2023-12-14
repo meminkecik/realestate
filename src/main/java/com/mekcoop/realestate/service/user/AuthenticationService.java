@@ -2,6 +2,8 @@ package com.mekcoop.realestate.service.user;
 
 import com.mekcoop.realestate.payload.request.LoginRequest;
 import com.mekcoop.realestate.payload.response.AuthResponse;
+import com.mekcoop.realestate.payload.response.ResponseMessage;
+import com.mekcoop.realestate.payload.response.UserResponse;
 import com.mekcoop.realestate.security.jwt.JwtUtils;
 import com.mekcoop.realestate.security.service.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -58,4 +61,6 @@ public class AuthenticationService {
         }
         return ResponseEntity.ok(authResponse.build());
     }
+
+
 }

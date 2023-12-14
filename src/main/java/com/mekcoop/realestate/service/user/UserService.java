@@ -13,6 +13,7 @@ import com.mekcoop.realestate.repository.UserRepository;
 import com.mekcoop.realestate.service.validator.UniquePropertyValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -77,4 +78,6 @@ public class UserService {
                 .object(userMapper.mapUserToUserResponse(savedUser))
                 .build();
     }
+
+
 }

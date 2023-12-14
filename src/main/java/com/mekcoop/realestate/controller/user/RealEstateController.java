@@ -3,6 +3,7 @@ package com.mekcoop.realestate.controller.user;
 import com.mekcoop.realestate.payload.request.RealEstateRequest;
 import com.mekcoop.realestate.payload.response.RealEstateResponse;
 import com.mekcoop.realestate.payload.response.ResponseMessage;
+import com.mekcoop.realestate.payload.response.UserResponse;
 import com.mekcoop.realestate.service.user.RealEstateService;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,11 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class RealEstateController {
     private final RealEstateService realEstateService;
+
+    @GetMapping("/getEstate/{estateId}")
+    public  ResponseMessage<RealEstateResponse> getEstate(@PathVariable Long estateId){
+        return realEstateService.getEstate(estateId);
+    }
 
     @PostMapping("/save")
     public ResponseMessage<RealEstateResponse> saveRealEstate(@RequestBody @Valid RealEstateRequest realEstateRequest){

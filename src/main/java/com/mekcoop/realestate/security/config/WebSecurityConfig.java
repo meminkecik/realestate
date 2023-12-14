@@ -95,7 +95,7 @@ public class WebSecurityConfig {
             "/static/**",
             "/static/estatef/**",
             "/estatef/**",
-            "/favicon.ico"
+            "/contactMessages/save"
     };
 
 }

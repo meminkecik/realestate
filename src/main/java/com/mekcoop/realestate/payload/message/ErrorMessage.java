@@ -12,6 +12,8 @@ public class ErrorMessage {
 
     public static final String NOT_FOUND_USER_SSN_MESSAGE ="Error: User not found with ssn %s";
     public static final String NOT_FOUND_USER_ID_MESSAGE ="Error: User not found with id %s";
+    public static final String NOT_FOUND_USER_USERNAME_MESSAGE ="Error: User not found with username %s";
+
 
 
 
