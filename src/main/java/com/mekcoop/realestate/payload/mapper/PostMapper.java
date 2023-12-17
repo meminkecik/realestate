@@ -26,6 +26,7 @@ public class PostMapper {
                 .price(postRequest.getPrice())
                 .header(postRequest.getHeader())
                 .description(postRequest.getDescription())
+                .imageUrl(postRequest.getImageUrl())
                 .build();
     }
     public PostResponse mapPostToPostResponse(Post post){
@@ -45,6 +46,7 @@ public class PostMapper {
                 .price(post.getPrice())
                 .header(post.getHeader())
                 .description(post.getDescription())
+                .imageUrl(post.getImageUrl())
                 .build();
     }
     public Post mapPostRequestToUpdatedPost(PostRequest postRequest,Long id){

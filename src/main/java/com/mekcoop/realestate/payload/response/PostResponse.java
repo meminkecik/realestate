@@ -26,4 +26,5 @@ public class PostResponse {
     private String userName;
     private String userSurname;
     private String companyName;
+    private String imageUrl;
 }

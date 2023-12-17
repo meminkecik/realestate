@@ -33,4 +33,6 @@ public class PostRequest {
     private String address;
     @NotNull(message = "Please enter owner user ssn")
     private String ownerSsn;
+    @NotNull(message = "Please enter image url")
+    private String imageUrl;
 }

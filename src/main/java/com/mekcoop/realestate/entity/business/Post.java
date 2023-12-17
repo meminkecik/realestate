@@ -34,5 +34,6 @@ public class Post {
     @ManyToOne
     @JsonIgnore
     private RealEstate realEstate;
+    private String imageUrl;
 
 }

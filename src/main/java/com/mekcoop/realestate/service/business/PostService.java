@@ -18,7 +18,6 @@ import com.mekcoop.realestate.service.user.UserService;
 import com.mekcoop.realestate.service.helper.PageableHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -54,10 +53,7 @@ public class PostService {
 
     public Page<PostResponse> getAllPostWithPage(int page, int size, String sort, String type,String estateType,Double minPrice,Double maxPrice,Integer roomNumber,String city) {
         Pageable pageable = pageableHelper.getPageableWithProperties(page,size,sort,type);
-        List<PostResponse> postResponseList = listPostSearch(estateType,minPrice,maxPrice,roomNumber,city);
-        return new PageImpl<>(postResponseList,pageable,postResponseList.size());
-
-        //return postRepository.findAll(pageable).map(postMapper::mapPostToPostResponse);
+        return postRepository.findAllWithProperties(pageable,estateType,minPrice,maxPrice,roomNumber,city).map(postMapper::mapPostToPostResponse);
     }
 
     public ResponseMessage deleteEstateById(Long postId) {
